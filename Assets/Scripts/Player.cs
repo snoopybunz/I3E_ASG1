@@ -32,6 +32,10 @@ public class Player : MonoBehaviour
     public GameTimer gameTimer;
     public int totalKeyCards;
 
+    // Player movement properties
+    public float moveSpeed = 5f;
+    public float jumpHeight = 2f;
+
     void Start()
     {
         // Store the initial position of the player
@@ -114,6 +118,26 @@ public class Player : MonoBehaviour
     }
 
     /// <summary>
+    /// Increase the player's movement speed
+    /// </summary>
+    /// <param name="amount">The amount to increase the speed by.</param>
+    public void IncreaseSpeed(float amount)
+    {
+        moveSpeed += amount;
+        Debug.Log($"Player speed increased by {amount}. New speed: {moveSpeed}");
+    }
+
+    /// <summary>
+    /// Increase the player's jump height
+    /// </summary>
+    /// <param name="amount">The amount to increase the jump height by.</param>
+    public void IncreaseJumpHeight(float amount)
+    {
+        jumpHeight += amount;
+        Debug.Log($"Player jump height increased by {amount}. New jump height: {jumpHeight}");
+    }
+
+    /// <summary>
     /// Get the current key card score
     /// </summary>
     /// <returns>The current key card score.</returns>
@@ -186,4 +210,3 @@ public class Player : MonoBehaviour
         UpdateUI();
     }
 }
-
